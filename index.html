@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIST Portföy Karar Terminali</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#070b12;color:#e8eef7;font-family:Inter,Arial,sans-serif}
+.wrap{max-width:1450px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid #1b2838;padding-bottom:16px}
+.k{font-size:10px;letter-spacing:.18em;color:#718096}.title{font-size:28px;font-weight:900;margin:5px 0}.muted{font-size:10px;color:#718096}.status{padding:8px 10px;border:1px solid #28405b;border-radius:8px;font-size:10px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}.card{background:#0d141e;border:1px solid #1b2838;border-radius:12px;padding:14px}.stock{cursor:pointer}.stock.active{border-color:#668cff}
+.sym{font-weight:900}.price{font-size:23px;font-weight:900;margin-top:8px}.up{color:#55d59d}.down{color:#ff7184}.warn{color:#e1c16b}
+.grid{display:grid;grid-template-columns:1.6fr .8fr;gap:10px}.detail{display:grid;grid-template-columns:1fr 1fr;gap:12px}.metrics div{display:flex;justify-content:space-between;border-bottom:1px solid #182330;padding:8px 0;font-size:10px}.metrics span{color:#8290a4}
+.scoregrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.scorebox{background:#091018;border:1px solid #182536;border-radius:9px;padding:12px;text-align:center}.num{font-size:30px;font-weight:900}.bar{height:6px;background:#182535;border-radius:9px;margin-top:7px}.bar i{display:block;height:100%;border-radius:9px}.why{font-size:10px;line-height:1.55;color:#8290a4;background:#091018;border:1px solid #182536;padding:11px;border-radius:8px;margin-top:10px}.foot{margin-top:12px;font-size:9px;color:#657387;line-height:1.5}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}@media(max-width:560px){.cards,.detail,.scoregrid{grid-template-columns:1fr}.top{flex-direction:column;gap:12px}}
+</style>
+</head>
+<body><div class="wrap">
+<div class="top"><div><div class="k">PERSONAL BIST INTELLIGENCE</div><div class="title">Portföy Karar Terminali</div><div class="muted">Otomatik günlük veri · teknik karar skoru</div></div><div id="status" class="status">● VERİ BEKLENİYOR</div></div>
+<div id="cards" class="cards"></div>
+<div class="grid"><main class="card">
+<div style="display:flex;justify-content:space-between"><b id="title">CVKMD</b><span id="updated" class="muted"></span></div>
+<div class="detail" style="margin-top:12px"><div class="metrics" id="metrics"></div><div>
+<div class="scoregrid">
+<div class="scorebox"><span class="muted">AL</span><div id="buy" class="num up">—</div><div class="bar"><i id="bb" class="up"></i></div></div>
+<div class="scorebox"><span class="muted">BEKLE</span><div id="hold" class="num warn">—</div><div class="bar"><i id="hb" class="warn"></i></div></div>
+<div class="scorebox"><span class="muted">SAT</span><div id="sell" class="num down">—</div><div class="bar"><i id="sb" class="down"></i></div></div>
+</div>
+<div id="decision" style="font-size:20px;font-weight:900;text-align:center;margin-top:13px">—</div>
+<div id="why" class="why">Veri bekleniyor.</div>
+</div></div></main>
+<aside><div class="card"><b>Skor Motoru</b><div class="why">Trend %25 · RSI %15 · MACD %15 · Hacim %10 · Momentum %15 · BIST relatif güç %10 · Risk %10.<br><br>Skorlar sabit değildir. GitHub Actions yeni veri aldığında yeniden hesaplanır.</div></div>
+<div class="card" style="margin-top:10px"><b>Portföy</b><div class="why">CVKMD · ALTINS1 · ASTOR · KTLEV</div></div></aside></div>
+<div class="foot">Veri kaynağı: GitHub Actions üzerinden Yahoo Finance chart verisi. Veriler gecikmeli/günlük olabilir; gerçek zamanlı BIST tick verisi değildir. Bu ekran yatırım tavsiyesi değildir.</div>
+</div>
+<script>
+let D={}, selected="CVKMD";
+const symbols=["CVKMD","ALTINS1","ASTOR","KTLEV"];
+const fmt=n=>n==null||Number.isNaN(Number(n))?"—":Number(n).toLocaleString("tr-TR",{maximumFractionDigits:2});
+async function load(){
+ try{
+  const r=await fetch("data/market.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) throw Error();
+  D=await r.json(); document.getElementById("status").textContent="● VERİ GÜNCEL · "+(D.updated||"");
+  render(); detail();
+ }catch(e){document.getElementById("status").textContent="● VERİ DOSYASI BULUNAMADI";}
+}
+function render(){
+ const c=document.getElementById("cards"); c.innerHTML="";
+ symbols.forEach(s=>{const x=D[s]||{},q=x.quote||{},sc=x.score||{};const el=document.createElement("div");
+ el.className="card stock "+(s===selected?"active":"");el.onclick=()=>{selected=s;render();detail()};
+ el.innerHTML=`<div class="sym">${s}</div><div class="price">${q.close!=null?fmt(q.close)+" TL":"VERİ YOK"}</div><div class="${(q.change_pct||0)>=0?"up":"down"}">${q.change_pct==null?"Günlük —":fmt(q.change_pct)+"%"}</div><div class="muted" style="margin-top:7px">RSI ${fmt(x.indicators?.rsi)} · Hacim ${fmt(x.indicators?.volume)}</div><div style="margin-top:8px;font-weight:800">${sc.decision||"VERİ YOK"} · ${sc.buy??"—"}/100</div>`;
+ c.appendChild(el)});
+}
+function detail(){
+ const x=D[selected]||{},q=x.quote||{},i=x.indicators||{},s=x.score||{};
+ document.getElementById("title").textContent=selected;
+ document.getElementById("updated").textContent=D.updated||"";
+ const rows=[["Kapanış",q.close==null?"—":fmt(q.close)+" TL"],["Önceki kapanış",q.previous_close==null?"—":fmt(q.previous_close)+" TL"],["Günlük",q.change_pct==null?"—":fmt(q.change_pct)+"%"],["Açılış",fmt(q.open)],["Yüksek",fmt(q.high)],["Düşük",fmt(q.low)],["Hacim",fmt(i.volume)],["RSI 14",fmt(i.rsi)],["SMA20",fmt(i.sma20)],["SMA50",fmt(i.sma50)],["SMA200",fmt(i.sma200)],["MACD",fmt(i.macd)],["Hacim oranı",i.volume_ratio==null?"—":fmt(i.volume_ratio)+"x"],["20G momentum",i.momentum20==null?"—":fmt(i.momentum20)+"%"]];
+ document.getElementById("metrics").innerHTML=rows.map(a=>`<div><span>${a[0]}</span><b>${a[1]}</b></div>`).join("");
+ [["buy",s.buy],["hold",s.hold],["sell",s.sell]].forEach(a=>document.getElementById(a[0]).textContent=a[1]==null?"—":a[1]+"/100");
+ document.getElementById("bb").style.width=(s.buy||0)+"%";document.getElementById("hb").style.width=(s.hold||0)+"%";document.getElementById("sb").style.width=(s.sell||0)+"%";
+ document.getElementById("decision").textContent=s.decision==="AL"?"🟢 AL GÜCÜ ÖNDE":s.decision==="SAT"?"🔴 SAT GÜCÜ ÖNDE":s.decision==="BEKLE"?"🟡 BEKLE / TEYİT":"⚪ VERİ YETERSİZ";
+ document.getElementById("why").innerHTML=(s.reasons||["Veri bekleniyor."]).map(r=>typeof r==="string"?`• ${r}`:`• <b>${r[0]}</b>: ${r[1]}`).join("<br>");
+}
+load();
+</script></body></html>
