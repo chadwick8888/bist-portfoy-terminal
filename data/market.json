@@ -1,17 +1,18 @@
 {
-  "updated": "2026-08-25T22:46:21.596321+00:00",
+  "updated": "2026-08-25T23:09:46.774774+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "Varsayılan BIST verisi yaklaşık 15 dk gecikmeli olabilir.",
   "stocks": {
     "CVKMD": {
       "symbol": "CVKMD",
+      "provider_symbol": "CVKMD",
       "quote": {
         "price": 16.08,
         "previous_close": 16.15,
         "day_change_percent": -0.43343653250774716,
         "volume": 43670358.0,
         "market_cap": 60782400000.0,
-        "timestamp": "2026-08-25T22:46:33.067733+00:00"
+        "timestamp": "2026-08-25T23:09:56.607820+00:00"
       },
       "indicators": {
         "rsi14": 57.64499121265376,
@@ -39,15 +40,52 @@
         ]
       }
     },
+    "ALTINS1": {
+      "symbol": "ALTINS1",
+      "provider_symbol": "ALTIN",
+      "quote": {
+        "price": 79.2,
+        "previous_close": 80.2,
+        "day_change_percent": -1.2468827930174564,
+        "volume": 25108902.0,
+        "market_cap": null,
+        "timestamp": "2026-08-25T23:10:02.383161+00:00"
+      },
+      "indicators": {
+        "rsi14": 82.91420118343194,
+        "sma20": 72.8665,
+        "sma50": 71.6238,
+        "sma200": 80.3513,
+        "macd": 2.051221687688212,
+        "macd_signal": 1.2189655772230759,
+        "macd_hist": 0.8322561104651363,
+        "momentum20": 15.637319316688592,
+        "volume": 25108902.0,
+        "volume_vs_20d": 1.4485589255939575
+      },
+      "score": {
+        "buy": 57.0,
+        "hold": 86.0,
+        "sell": 43.0,
+        "decision": "BEKLE",
+        "reasons": [
+          "RSI aşırı alım bölgesinde",
+          "Fiyat SMA20 üzerinde",
+          "Fiyat SMA50 üzerinde",
+          "MACD histogram pozitif"
+        ]
+      }
+    },
     "ASTOR": {
       "symbol": "ASTOR",
+      "provider_symbol": "ASTOR",
       "quote": {
         "price": 339.0,
         "previous_close": 341.25,
         "day_change_percent": -0.659340659340657,
         "volume": 25620905.0,
         "market_cap": 338322000000.0,
-        "timestamp": "2026-08-25T22:46:41.401956+00:00"
+        "timestamp": "2026-08-25T23:10:09.040129+00:00"
       },
       "indicators": {
         "rsi14": 61.11111111111111,
@@ -77,13 +115,14 @@
     },
     "KTLEV": {
       "symbol": "KTLEV",
+      "provider_symbol": "KTLEV",
       "quote": {
         "price": 62.0,
         "previous_close": 58.6,
         "day_change_percent": 5.802047781569963,
         "volume": 101504983.0,
         "market_cap": 434000000000.0,
-        "timestamp": "2026-08-25T22:46:47.680610+00:00"
+        "timestamp": "2026-08-25T23:10:15.679371+00:00"
       },
       "indicators": {
         "rsi14": 76.9804822043628,
@@ -112,7 +151,5 @@
       }
     }
   },
-  "errors": {
-    "ALTINS1": "API Error: TradingView error: ['cs_1p8xdnfl4cll', 'ser_1', 'invalid symbol']"
-  }
+  "errors": {}
 }
