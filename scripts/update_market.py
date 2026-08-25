@@ -1,74 +1,205 @@
-import json, math, os, urllib.request, datetime, statistics
+import json
+import math
+from datetime import datetime, timezone
 
-SYMS=["CVKMD","ALTINS1","ASTOR","KTLEV"]
-# Yahoo Finance symbols for Borsa Istanbul.
-TICKERS={s:s+".IS" for s in SYMS}
-TICKERS["BIST100"]="XU100.IS"
+import borsapy as bp
 
-def fetch(ticker):
-    url=f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range=1y&interval=1d&events=history"
-    req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
-    with urllib.request.urlopen(req,timeout=20) as r: j=json.loads(r.read())
-    res=j["chart"]["result"][0]; q=res["indicators"]["quote"][0]
-    ts=res["timestamp"]; bars=[]
-    for i,t in enumerate(ts):
-        c=q["close"][i]
-        if c is not None: bars.append({"t":t,"open":q["open"][i],"high":q["high"][i],"low":q["low"][i],"close":c,"volume":q["volume"][i] or 0})
-    return bars
+TICKERS = ["CVKMD", "ALTINS1", "ASTOR", "KTLEV"]
 
-def ema(a,n):
-    if not a:return []
-    k=2/(n+1); out=[a[0]]
-    for x in a[1:]:out.append(x*k+out[-1]*(1-k))
+
+def num(v):
+    try:
+        x = float(v)
+        return None if not math.isfinite(x) else x
+    except Exception:
+        return None
+
+
+def rsi(closes, period=14):
+    if len(closes) <= period:
+        return None
+    gains, losses = [], []
+    for a, b in zip(closes[-period-1:-1], closes[-period:]):
+        d = b - a
+        gains.append(max(d, 0))
+        losses.append(max(-d, 0))
+    ag = sum(gains) / period
+    al = sum(losses) / period
+    if al == 0:
+        return 100.0
+    return 100 - (100 / (1 + ag / al))
+
+
+def ema(values, period):
+    if len(values) < period:
+        return []
+    k = 2 / (period + 1)
+    out = [sum(values[:period]) / period]
+    for v in values[period:]:
+        out.append(v * k + out[-1] * (1 - k))
     return out
 
-def calc(bars,bist_mom=0):
-    c=[float(x["close"]) for x in bars]; v=[float(x["volume"]) for x in bars]
-    if len(c)<30:return {},{"buy":None,"hold":None,"sell":None,"decision":"VERİ YETERSİZ","reasons":["En az 30 günlük veri gerekli."]}
-    def sma(n): return sum(c[-n:])/n if len(c)>=n else None
-    d=[c[i]-c[i-1] for i in range(1,len(c))]
-    g=[max(x,0) for x in d[-14:]]; l=[max(-x,0) for x in d[-14:]]
-    ag=sum(g)/14; al=sum(l)/14; rsi=100 if al==0 else 100-100/(1+ag/al)
-    e12,e26=ema(c,12),ema(c,26); mac=[a-b for a,b in zip(e12[-len(e26):],e26)]
-    macd=mac[-1]; sig=ema(mac,9)[-1]
-    avgv=sum(v[-20:])/20; vr=v[-1]/avgv if avgv else 1
-    mom=(c[-1]/c[-21]-1)*100
-    ind={"rsi":rsi,"sma20":sma(20),"sma50":sma(50),"sma200":sma(200),"macd":macd,"macd_signal":sig,"volume":v[-1],"volume_ratio":vr,"momentum20":mom}
-    buy=hold=sell=0; reasons=[]
-    trend=sum(c[-1]>z for z in [ind["sma20"],ind["sma50"],ind["sma200"]])
-    buy+=trend/3*25; sell+=(1-trend/3)*25; reasons.append(("Trend","pozitif" if trend>=2 else "zayıf"))
-    if 52<=rsi<=68: buy+=15; reasons.append(("RSI","pozitif bölge"))
-    elif rsi>72: sell+=10; hold+=5; reasons.append(("RSI","aşırı alım riski"))
-    elif rsi<35: buy+=5; hold+=10; reasons.append(("RSI","zayıf/tepki ihtimali"))
-    else: hold+=12; reasons.append(("RSI","nötr"))
-    if macd>sig:buy+=15;reasons.append(("MACD","pozitif"))
-    else:sell+=10;hold+=5;reasons.append(("MACD","negatif"))
-    if vr>=1.2:
-        (buy if c[-1]>ind["sma20"] else sell); buy+=7 if c[-1]>ind["sma20"] else 0; sell+=3 if c[-1]<ind["sma20"] else 0
-        reasons.append(("Hacim","ortalamanın üzerinde"))
-    else:hold+=6;reasons.append(("Hacim","normal"))
-    if mom>5:buy+=15
-    elif mom>0:buy+=9;hold+=6
-    elif mom<-5:sell+=15
-    else:hold+=10
-    if mom>bist_mom:buy+=10;reasons.append(("Relatif güç","BIST'ten güçlü"))
-    else:hold+=6;sell+=4;reasons.append(("Relatif güç","BIST'ten zayıf"))
-    if rsi>78 or rsi<25:sell+=6
-    else:hold+=6
-    total=buy+hold+sell
-    vals=[round(x/total*100) for x in (buy,hold,sell)]
-    # normalize rounding to 100
-    vals[vals.index(max(vals))]+=100-sum(vals)
-    b,h,s=vals; decision="AL" if b>=55 and b==max(vals) else ("SAT" if s>=55 and s==max(vals) else "BEKLE")
-    return ind,{"buy":b,"hold":h,"sell":s,"decision":decision,"reasons":reasons}
+
+def sma(values, period):
+    return sum(values[-period:]) / period if len(values) >= period else None
+
+
+def indicators(df):
+    closes = [num(x) for x in df["Close"].tolist() if num(x) is not None]
+    volumes = [num(x) for x in df["Volume"].tolist()] if "Volume" in df else []
+    e12 = ema(closes, 12)
+    e26 = ema(closes, 26)
+    macd_line = None
+    signal = None
+    hist = None
+    if e12 and e26:
+        # Align the two EMA series by their common tail.
+        n = min(len(e12), len(e26))
+        macds = [a - b for a, b in zip(e12[-n:], e26[-n:])]
+        macd_line = macds[-1]
+        sigs = ema(macds, 9)
+        if sigs:
+            signal = sigs[-1]
+            hist = macd_line - signal
+
+    avg_vol = sum(volumes[-20:]) / min(20, len(volumes)) if volumes else None
+    vol_now = volumes[-1] if volumes else None
+
+    return {
+        "rsi14": rsi(closes),
+        "sma20": sma(closes, 20),
+        "sma50": sma(closes, 50),
+        "sma200": sma(closes, 200),
+        "macd": macd_line,
+        "macd_signal": signal,
+        "macd_hist": hist,
+        "momentum20": ((closes[-1] / closes[-21]) - 1) * 100 if len(closes) > 21 else None,
+        "volume": vol_now,
+        "volume_vs_20d": (vol_now / avg_vol) if vol_now and avg_vol else None,
+    }
+
+
+def score(close, ind, day_change):
+    # Transparent heuristic score, not a price prediction.
+    points = 50.0
+    reasons = []
+
+    r = ind.get("rsi14")
+    if r is not None:
+        if r < 30:
+            points += 10; reasons.append("RSI aşırı satım bölgesinde")
+        elif r > 70:
+            points -= 8; reasons.append("RSI aşırı alım bölgesinde")
+        elif r >= 55:
+            points += 5; reasons.append("RSI pozitif bölgede")
+
+    s20, s50, s200 = ind.get("sma20"), ind.get("sma50"), ind.get("sma200")
+    if s20 and close > s20:
+        points += 5; reasons.append("Fiyat SMA20 üzerinde")
+    else:
+        points -= 4
+    if s50 and close > s50:
+        points += 5; reasons.append("Fiyat SMA50 üzerinde")
+    else:
+        points -= 4
+    if s200 and close > s200:
+        points += 7; reasons.append("Fiyat SMA200 üzerinde")
+    else:
+        points -= 7
+
+    mh = ind.get("macd_hist")
+    if mh is not None:
+        if mh > 0:
+            points += 7; reasons.append("MACD histogram pozitif")
+        else:
+            points -= 7; reasons.append("MACD histogram negatif")
+
+    mom = ind.get("momentum20")
+    if mom is not None:
+        if mom > 5:
+            points += 5
+        elif mom < -5:
+            points -= 5
+
+    if day_change is not None:
+        if day_change > 3:
+            points += 2
+        elif day_change < -3:
+            points -= 2
+
+    buy = max(0, min(100, points))
+    sell = 100 - buy
+    hold = 100 - abs(buy - 50) * 2
+    hold = max(0, min(100, hold))
+
+    if buy >= 65:
+        decision = "AL"
+    elif buy <= 35:
+        decision = "SAT"
+    else:
+        decision = "BEKLE"
+
+    return {
+        "buy": round(buy, 1),
+        "hold": round(hold, 1),
+        "sell": round(sell, 1),
+        "decision": decision,
+        "reasons": reasons[:6],
+    }
+
+
+def fetch(symbol):
+    t = bp.Ticker(symbol)
+    info = getattr(t, "fast_info", {}) or {}
+    df = t.history(period="1y", interval="1d")
+    if df is None or len(df) < 30:
+        raise RuntimeError(f"{symbol}: yeterli tarihsel veri alınamadı")
+
+    last = num(df["Close"].iloc[-1])
+    prev = num(df["Close"].iloc[-2])
+    day_change = ((last / prev) - 1) * 100 if last and prev else None
+    ind = indicators(df)
+
+    return {
+        "symbol": symbol,
+        "quote": {
+            "price": last,
+            "previous_close": prev,
+            "day_change_percent": day_change,
+            "volume": ind["volume"],
+            "market_cap": num(info.get("market_cap")),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+        },
+        "indicators": ind,
+        "score": score(last, ind, day_change),
+    }
+
 
 def main():
-    bist=fetch(TICKERS["BIST100"]); bc=[x["close"] for x in bist]; bm=(bc[-1]/bc[-21]-1)*100 if len(bc)>21 else 0
-    out={"updated":datetime.datetime.now(datetime.timezone.utc).isoformat()}
-    for s in SYMS:
-        bars=fetch(TICKERS[s]); ind,sc=calc(bars,bm)
-        last,prev=bars[-1],bars[-2]
-        out[s]={"quote":{"close":last["close"],"previous_close":prev["close"],"change_pct":(last["close"]/prev["close"]-1)*100,"open":last["open"],"high":last["high"],"low":last["low"]},"indicators":ind,"score":sc}
-    os.makedirs("data",exist_ok=True)
-    with open("data/market.json","w",encoding="utf-8") as f: json.dump(out,f,ensure_ascii=False,indent=2)
-if __name__=="__main__":main()
+    result = {
+        "updated": datetime.now(timezone.utc).isoformat(),
+        "source": "borsapy / TradingView-İş Yatırım kaynakları",
+        "delay_note": "Varsayılan BIST verisi yaklaşık 15 dk gecikmeli olabilir.",
+        "stocks": {},
+    }
+
+    errors = {}
+    for symbol in TICKERS:
+        try:
+            result["stocks"][symbol] = fetch(symbol)
+        except Exception as exc:
+            errors[symbol] = str(exc)
+
+    result["errors"] = errors
+
+    if not result["stocks"]:
+        raise RuntimeError(f"Hiçbir hisse verisi alınamadı: {errors}")
+
+    with open("data/market.json", "w", encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()
