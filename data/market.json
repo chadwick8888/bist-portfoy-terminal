@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25T22:37:48.363397+00:00",
+  "updated": "2026-08-25T22:46:21.596321+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "Varsayılan BIST verisi yaklaşık 15 dk gecikmeli olabilir.",
   "stocks": {
@@ -11,7 +11,7 @@
         "day_change_percent": -0.43343653250774716,
         "volume": 43670358.0,
         "market_cap": 60782400000.0,
-        "timestamp": "2026-08-25T22:38:00.996508+00:00"
+        "timestamp": "2026-08-25T22:46:33.067733+00:00"
       },
       "indicators": {
         "rsi14": 57.64499121265376,
@@ -47,7 +47,7 @@
         "day_change_percent": -0.659340659340657,
         "volume": 25620905.0,
         "market_cap": 338322000000.0,
-        "timestamp": "2026-08-25T22:38:08.849059+00:00"
+        "timestamp": "2026-08-25T22:46:41.401956+00:00"
       },
       "indicators": {
         "rsi14": 61.11111111111111,
@@ -83,7 +83,7 @@
         "day_change_percent": 5.802047781569963,
         "volume": 101504983.0,
         "market_cap": 434000000000.0,
-        "timestamp": "2026-08-25T22:38:15.438683+00:00"
+        "timestamp": "2026-08-25T22:46:47.680610+00:00"
       },
       "indicators": {
         "rsi14": 76.9804822043628,
@@ -113,6 +113,6 @@
     }
   },
   "errors": {
-    "ALTINS1": "API Error: TradingView error: ['cs_e8lm2pl29qyv', 'ser_1', 'invalid symbol']"
+    "ALTINS1": "API Error: TradingView error: ['cs_1p8xdnfl4cll', 'ser_1', 'invalid symbol']"
   }
 }
