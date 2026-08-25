@@ -1,0 +1,55 @@
+{
+  "updated": "İlk GitHub Action çalışması bekleniyor",
+  "CVKMD": {
+    "quote": {},
+    "indicators": {},
+    "score": {
+      "buy": null,
+      "hold": null,
+      "sell": null,
+      "decision": "VERİ YOK",
+      "reasons": [
+        "GitHub Actions ilk veri güncellemesini bekliyor."
+      ]
+    }
+  },
+  "ALTINS1": {
+    "quote": {},
+    "indicators": {},
+    "score": {
+      "buy": null,
+      "hold": null,
+      "sell": null,
+      "decision": "VERİ YOK",
+      "reasons": [
+        "GitHub Actions ilk veri güncellemesini bekliyor."
+      ]
+    }
+  },
+  "ASTOR": {
+    "quote": {},
+    "indicators": {},
+    "score": {
+      "buy": null,
+      "hold": null,
+      "sell": null,
+      "decision": "VERİ YOK",
+      "reasons": [
+        "GitHub Actions ilk veri güncellemesini bekliyor."
+      ]
+    }
+  },
+  "KTLEV": {
+    "quote": {},
+    "indicators": {},
+    "score": {
+      "buy": null,
+      "hold": null,
+      "sell": null,
+      "decision": "VERİ YOK",
+      "reasons": [
+        "GitHub Actions ilk veri güncellemesini bekliyor."
+      ]
+    }
+  }
+}
