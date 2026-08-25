@@ -1,55 +1,118 @@
 {
-  "updated": "İlk GitHub Action çalışması bekleniyor",
-  "CVKMD": {
-    "quote": {},
-    "indicators": {},
-    "score": {
-      "buy": null,
-      "hold": null,
-      "sell": null,
-      "decision": "VERİ YOK",
-      "reasons": [
-        "GitHub Actions ilk veri güncellemesini bekliyor."
-      ]
+  "updated": "2026-08-25T22:37:48.363397+00:00",
+  "source": "borsapy / TradingView-İş Yatırım kaynakları",
+  "delay_note": "Varsayılan BIST verisi yaklaşık 15 dk gecikmeli olabilir.",
+  "stocks": {
+    "CVKMD": {
+      "symbol": "CVKMD",
+      "quote": {
+        "price": 16.08,
+        "previous_close": 16.15,
+        "day_change_percent": -0.43343653250774716,
+        "volume": 43670358.0,
+        "market_cap": 60782400000.0,
+        "timestamp": "2026-08-25T22:38:00.996508+00:00"
+      },
+      "indicators": {
+        "rsi14": 57.64499121265376,
+        "sma20": 15.733756124,
+        "sma50": 15.519499572800001,
+        "sma200": 13.1477735618,
+        "macd": 0.3176273141471686,
+        "macd_signal": 0.2903336671379799,
+        "macd_hist": 0.027293647009188682,
+        "momentum20": 13.917922137100213,
+        "volume": 43670358.0,
+        "volume_vs_20d": 1.0326995925064684
+      },
+      "score": {
+        "buy": 84.0,
+        "hold": 32.0,
+        "sell": 16.0,
+        "decision": "AL",
+        "reasons": [
+          "RSI pozitif bölgede",
+          "Fiyat SMA20 üzerinde",
+          "Fiyat SMA50 üzerinde",
+          "Fiyat SMA200 üzerinde",
+          "MACD histogram pozitif"
+        ]
+      }
+    },
+    "ASTOR": {
+      "symbol": "ASTOR",
+      "quote": {
+        "price": 339.0,
+        "previous_close": 341.25,
+        "day_change_percent": -0.659340659340657,
+        "volume": 25620905.0,
+        "market_cap": 338322000000.0,
+        "timestamp": "2026-08-25T22:38:08.849059+00:00"
+      },
+      "indicators": {
+        "rsi14": 61.11111111111111,
+        "sma20": 317.7375,
+        "sma50": 307.525,
+        "sma200": 215.438,
+        "macd": 9.723071106222903,
+        "macd_signal": 7.846871693510831,
+        "macd_hist": 1.8761994127120722,
+        "momentum20": 22.162162162162158,
+        "volume": 25620905.0,
+        "volume_vs_20d": 0.9411870161607031
+      },
+      "score": {
+        "buy": 84.0,
+        "hold": 32.0,
+        "sell": 16.0,
+        "decision": "AL",
+        "reasons": [
+          "RSI pozitif bölgede",
+          "Fiyat SMA20 üzerinde",
+          "Fiyat SMA50 üzerinde",
+          "Fiyat SMA200 üzerinde",
+          "MACD histogram pozitif"
+        ]
+      }
+    },
+    "KTLEV": {
+      "symbol": "KTLEV",
+      "quote": {
+        "price": 62.0,
+        "previous_close": 58.6,
+        "day_change_percent": 5.802047781569963,
+        "volume": 101504983.0,
+        "market_cap": 434000000000.0,
+        "timestamp": "2026-08-25T22:38:15.438683+00:00"
+      },
+      "indicators": {
+        "rsi14": 76.9804822043628,
+        "sma20": 51.105100449999995,
+        "sma50": 52.248446592,
+        "sma200": 26.116524463599998,
+        "macd": 3.257302275020386,
+        "macd_signal": 1.7543438112057708,
+        "macd_hist": 1.5029584638146154,
+        "momentum20": 33.28800910413858,
+        "volume": 101504983.0,
+        "volume_vs_20d": 0.9576432764587454
+      },
+      "score": {
+        "buy": 73.0,
+        "hold": 54.0,
+        "sell": 27.0,
+        "decision": "AL",
+        "reasons": [
+          "RSI aşırı alım bölgesinde",
+          "Fiyat SMA20 üzerinde",
+          "Fiyat SMA50 üzerinde",
+          "Fiyat SMA200 üzerinde",
+          "MACD histogram pozitif"
+        ]
+      }
     }
   },
-  "ALTINS1": {
-    "quote": {},
-    "indicators": {},
-    "score": {
-      "buy": null,
-      "hold": null,
-      "sell": null,
-      "decision": "VERİ YOK",
-      "reasons": [
-        "GitHub Actions ilk veri güncellemesini bekliyor."
-      ]
-    }
-  },
-  "ASTOR": {
-    "quote": {},
-    "indicators": {},
-    "score": {
-      "buy": null,
-      "hold": null,
-      "sell": null,
-      "decision": "VERİ YOK",
-      "reasons": [
-        "GitHub Actions ilk veri güncellemesini bekliyor."
-      ]
-    }
-  },
-  "KTLEV": {
-    "quote": {},
-    "indicators": {},
-    "score": {
-      "buy": null,
-      "hold": null,
-      "sell": null,
-      "decision": "VERİ YOK",
-      "reasons": [
-        "GitHub Actions ilk veri güncellemesini bekliyor."
-      ]
-    }
+  "errors": {
+    "ALTINS1": "API Error: TradingView error: ['cs_e8lm2pl29qyv', 'ser_1', 'invalid symbol']"
   }
 }
