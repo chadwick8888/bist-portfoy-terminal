@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 import borsapy as bp
 
 
-TICKERS = ["CVKMD", "ALTINS1", "ASTOR", "KTLEV"]
+TICKERS = ["CVKMD", "ALTIN", "ASTOR", "KTLEV"]
 
 
 def num(v):
