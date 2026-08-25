@@ -4,7 +4,6 @@ from datetime import datetime, timezone
 
 import borsapy as bp
 
-# Dashboard adı -> veri sağlayıcı sembolü
 TICKERS = {
     "CVKMD": "CVKMD",
     "ALTINS1": "ALTIN",
@@ -42,11 +41,11 @@ def rsi(closes, period=14):
         d = b - a
         gains.append(max(d, 0))
         losses.append(max(-d, 0))
-    avg_gain = sum(gains) / period
-    avg_loss = sum(losses) / period
-    if avg_loss == 0:
+    ag = sum(gains) / period
+    al = sum(losses) / period
+    if al == 0:
         return 100.0
-    return 100 - (100 / (1 + avg_gain / avg_loss))
+    return 100 - (100 / (1 + ag / al))
 
 
 def ema(values, period):
@@ -69,7 +68,6 @@ def indicators(df):
 
     e12, e26 = ema(closes, 12), ema(closes, 26)
     macd_line = signal = hist = None
-
     if e12 and e26:
         n = min(len(e12), len(e26))
         macds = [a - b for a, b in zip(e12[-n:], e26[-n:])]
@@ -150,7 +148,6 @@ def score(close, ind, day_change):
     buy = max(0, min(100, points))
     sell = 100 - buy
     hold = max(0, min(100, 100 - abs(buy - 50) * 2))
-
     decision = "AL" if buy >= 65 else "SAT" if buy <= 35 else "BEKLE"
 
     return {
@@ -160,6 +157,35 @@ def score(close, ind, day_change):
         "decision": decision,
         "reasons": reasons[:6],
     }
+
+
+def history_rows(df):
+    rows = []
+    # Keep enough history for a useful one-year chart while keeping JSON small.
+    for idx, row in df.tail(260).iterrows():
+        close = num(row.get("Close"))
+        if close is None:
+            continue
+
+        def row_num(name):
+            try:
+                return num(row.get(name))
+            except Exception:
+                return None
+
+        date_value = str(idx)
+        if " " in date_value:
+            date_value = date_value.split(" ")[0]
+
+        rows.append({
+            "date": date_value[:10],
+            "open": row_num("Open"),
+            "high": row_num("High"),
+            "low": row_num("Low"),
+            "close": close,
+            "volume": row_num("Volume"),
+        })
+    return rows
 
 
 def fetch(display_symbol, provider_symbol):
@@ -172,14 +198,11 @@ def fetch(display_symbol, provider_symbol):
 
     last = num(df["Close"].iloc[-1])
     prev = num(df["Close"].iloc[-2])
-
     if last is None:
         raise RuntimeError(f"{display_symbol}: son fiyat alınamadı")
 
     day_change = ((last / prev) - 1) * 100 if prev not in (None, 0) else None
     ind = indicators(df)
-
-    market_cap = attr(info, "market_cap")
 
     return {
         "symbol": display_symbol,
@@ -189,11 +212,12 @@ def fetch(display_symbol, provider_symbol):
             "previous_close": prev,
             "day_change_percent": day_change,
             "volume": ind["volume"],
-            "market_cap": num(market_cap),
+            "market_cap": num(attr(info, "market_cap")),
             "timestamp": datetime.now(timezone.utc).isoformat(),
         },
         "indicators": ind,
         "score": score(last, ind, day_change),
+        "history": history_rows(df),
     }
 
 
@@ -201,7 +225,7 @@ def main():
     result = {
         "updated": datetime.now(timezone.utc).isoformat(),
         "source": "borsapy / TradingView-İş Yatırım kaynakları",
-        "delay_note": "Varsayılan BIST verisi yaklaşık 15 dk gecikmeli olabilir.",
+        "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
         "stocks": {},
         "errors": {},
     }
@@ -220,7 +244,11 @@ def main():
     with open("data/market.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
 
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    print(json.dumps({
+        "updated": result["updated"],
+        "stocks": list(result["stocks"].keys()),
+        "errors": result["errors"],
+    }, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
