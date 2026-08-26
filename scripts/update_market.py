@@ -161,7 +161,7 @@ def score(close, ind, day_change):
 
 def history_rows(df):
     rows = []
-    # Keep enough history for a useful one-year chart while keeping JSON small.
+    # Keep up to 5 years of daily history for multiple chart ranges.
     for idx, row in df.tail(260).iterrows():
         close = num(row.get("Close"))
         if close is None:
@@ -192,7 +192,7 @@ def fetch(display_symbol, provider_symbol):
     ticker = bp.Ticker(provider_symbol)
     info = getattr(ticker, "fast_info", None)
 
-    df = ticker.history(period="1y", interval="1d")
+    df = ticker.history(period="5y", interval="1d")
     if df is None or len(df) < 30:
         raise RuntimeError(f"{display_symbol}: yeterli tarihsel veri alınamadı")
 
