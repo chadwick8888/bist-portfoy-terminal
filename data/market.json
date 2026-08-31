@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-31T00:32:45.945202+00:00",
+  "updated": "2026-08-31T04:47:48.701059+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -12,7 +12,7 @@
         "day_change_percent": 0.07163323782235498,
         "volume": 33102498.0,
         "market_cap": null,
-        "timestamp": "2026-08-31T00:32:53.693815+00:00"
+        "timestamp": "2026-08-31T04:47:54.321644+00:00"
       },
       "indicators": {
         "rsi14": 68.91304347826087,
