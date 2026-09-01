@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-01T13:49:49.997485+00:00",
+  "updated": "2026-09-01T14:04:34.058763+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -7,33 +7,31 @@
       "symbol": "CVKMD",
       "provider_symbol": "CVKMD",
       "quote": {
-        "price": 16.24,
+        "price": 16.15,
         "previous_close": 16.76,
-        "day_change_percent": -3.1026252983293756,
-        "volume": 31360651.0,
-        "market_cap": 63352800000.0,
-        "timestamp": "2026-09-01T13:50:10.666919+00:00"
+        "day_change_percent": -3.6396181384248383,
+        "volume": 32176137.0,
+        "market_cap": null,
+        "timestamp": "2026-09-01T14:04:59.673507+00:00"
       },
       "indicators": {
-        "rsi14": 55.19630484988452,
-        "sma20": 16.1755,
-        "sma50": 15.4338435616,
-        "sma200": 13.3683327658,
-        "macd": 0.269329587047638,
-        "macd_signal": 0.2738511160011121,
-        "macd_hist": -0.00452152895347413,
-        "momentum20": 9.074735940407574,
-        "volume": 31360651.0,
-        "volume_vs_20d": 0.6991812390898234
+        "rsi14": 54.07239819004524,
+        "sma20": 16.171,
+        "sma50": 15.4320435616,
+        "sma200": 13.3678827658,
+        "macd": 0.2621500998681512,
+        "macd_signal": 0.2724152185652147,
+        "macd_hist": -0.010265118697063536,
+        "momentum20": 8.47025772398906,
+        "volume": 32176137.0,
+        "volume_vs_20d": 0.7167108519349543
       },
       "score": {
-        "buy": 68.0,
-        "hold": 64.0,
-        "sell": 32.0,
-        "decision": "AL",
+        "buy": 54.0,
+        "hold": 92.0,
+        "sell": 46.0,
+        "decision": "BEKLE",
         "reasons": [
-          "RSI pozitif bölgede",
-          "Fiyat SMA20 üzerinde",
           "Fiyat SMA50 üzerinde",
           "Fiyat SMA200 üzerinde",
           "MACD histogram negatif"
@@ -2117,8 +2115,8 @@
           "open": 16.76,
           "high": 16.9,
           "low": 16.1,
-          "close": 16.24,
-          "volume": 31360651.0
+          "close": 16.15,
+          "volume": 32176137.0
         }
       ]
     },
@@ -2126,24 +2124,24 @@
       "symbol": "ALTINS1",
       "provider_symbol": "ALTIN",
       "quote": {
-        "price": 73.08,
+        "price": 73.09,
         "previous_close": 74.48,
-        "day_change_percent": -1.8796992481203034,
-        "volume": 15777420.0,
+        "day_change_percent": -1.866272824919446,
+        "volume": 16501286.0,
         "market_cap": null,
-        "timestamp": "2026-09-01T13:50:31.111081+00:00"
+        "timestamp": "2026-09-01T14:05:10.367231+00:00"
       },
       "indicators": {
-        "rsi14": 45.92744695414101,
-        "sma20": 74.8845,
-        "sma50": 71.6592,
-        "sma200": 80.47364999999999,
-        "macd": 1.3426995582323116,
-        "macd_signal": 1.5781646683236406,
-        "macd_hist": -0.23546511009132898,
-        "momentum20": 7.7081798084008835,
-        "volume": 15777420.0,
-        "volume_vs_20d": 0.7734366501238052
+        "rsi14": 45.95890410958907,
+        "sma20": 74.885,
+        "sma50": 71.65939999999999,
+        "sma200": 80.4737,
+        "macd": 1.343497279030018,
+        "macd_signal": 1.5783242124831818,
+        "macd_hist": -0.23482693345316386,
+        "momentum20": 7.722918201915996,
+        "volume": 16501286.0,
+        "volume_vs_20d": 0.8074891295232102
       },
       "score": {
         "buy": 42.0,
@@ -4233,8 +4231,8 @@
           "open": 74.48,
           "high": 74.86,
           "low": 72.74,
-          "close": 73.08,
-          "volume": 15777420.0
+          "close": 73.09,
+          "volume": 16501286.0
         }
       ]
     },
@@ -4242,24 +4240,24 @@
       "symbol": "ASTOR",
       "provider_symbol": "ASTOR",
       "quote": {
-        "price": 320.0,
+        "price": 319.25,
         "previous_close": 325.75,
-        "day_change_percent": -1.765157329240219,
-        "volume": 29864583.0,
+        "day_change_percent": -1.9953952417498089,
+        "volume": 30671596.0,
         "market_cap": 325098500000.0,
-        "timestamp": "2026-09-01T13:50:49.394549+00:00"
+        "timestamp": "2026-09-01T14:05:18.732623+00:00"
       },
       "indicators": {
-        "rsi14": 44.67120181405896,
-        "sma20": 329.1625,
-        "sma50": 311.455,
-        "sma200": 221.47099999999998,
-        "macd": 7.489480425218062,
-        "macd_signal": 8.837675372808503,
-        "macd_hist": -1.3481949475904411,
-        "momentum20": 5.6977704376548255,
-        "volume": 29864583.0,
-        "volume_vs_20d": 0.8948725889345501
+        "rsi14": 44.36936936936937,
+        "sma20": 329.125,
+        "sma50": 311.44,
+        "sma200": 221.46724999999998,
+        "macd": 7.42965136538902,
+        "macd_signal": 8.825709560842695,
+        "macd_hist": -1.3960581954536746,
+        "momentum20": 5.450041288191576,
+        "volume": 30671596.0,
+        "volume_vs_20d": 0.9179443339725514
       },
       "score": {
         "buy": 56.0,
@@ -6350,8 +6348,8 @@
           "open": 329.25,
           "high": 342.25,
           "low": 316.25,
-          "close": 320.0,
-          "volume": 29864583.0
+          "close": 319.25,
+          "volume": 30671596.0
         }
       ]
     },
@@ -6362,9 +6360,9 @@
         "price": 56.55,
         "previous_close": 62.8,
         "day_change_percent": -9.952229299363058,
-        "volume": 90517720.0,
+        "volume": 90623238.0,
         "market_cap": 439600000000.0,
-        "timestamp": "2026-09-01T13:51:15.857948+00:00"
+        "timestamp": "2026-09-01T14:05:26.242348+00:00"
       },
       "indicators": {
         "rsi14": 54.69293163383545,
@@ -6375,8 +6373,8 @@
         "macd_signal": 3.310664017636,
         "macd_hist": 0.389447164926509,
         "momentum20": 36.19942196531791,
-        "volume": 90517720.0,
-        "volume_vs_20d": 0.864420066172297
+        "volume": 90623238.0,
+        "volume_vs_20d": 0.8653841338819488
       },
       "score": {
         "buy": 77.0,
@@ -8469,7 +8467,7 @@
           "high": 60.2,
           "low": 56.55,
           "close": 56.55,
-          "volume": 90517720.0
+          "volume": 90623238.0
         }
       ]
     }
