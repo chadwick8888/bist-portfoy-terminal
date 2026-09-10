@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-10T16:04:44.269976+00:00",
+  "updated": "2026-09-10T16:23:51.564084+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -12,7 +12,7 @@
         "day_change_percent": -2.564102564102566,
         "volume": 18093043.0,
         "market_cap": 57456000000.0,
-        "timestamp": "2026-09-10T16:05:21.282478+00:00"
+        "timestamp": "2026-09-10T16:24:14.479543+00:00"
       },
       "indicators": {
         "rsi14": 36.787564766839374,
@@ -2128,7 +2128,7 @@
         "day_change_percent": -1.1219447041538766,
         "volume": 13506441.0,
         "market_cap": null,
-        "timestamp": "2026-09-10T16:06:02.513056+00:00"
+        "timestamp": "2026-09-10T16:24:24.194507+00:00"
       },
       "indicators": {
         "rsi14": 40.53731343283582,
@@ -4244,7 +4244,7 @@
         "day_change_percent": -4.837364470391991,
         "volume": 28328375.0,
         "market_cap": 284679500000.0,
-        "timestamp": "2026-09-10T16:06:50.625022+00:00"
+        "timestamp": "2026-09-10T16:24:40.501765+00:00"
       },
       "indicators": {
         "rsi14": 24.102564102564102,
@@ -6359,9 +6359,9 @@
         "price": 41.82,
         "previous_close": 38.02,
         "day_change_percent": 9.994739610731184,
-        "volume": 358571782.0,
+        "volume": 358571780.0,
         "market_cap": 292740000000.0,
-        "timestamp": "2026-09-10T16:07:04.689638+00:00"
+        "timestamp": "2026-09-10T16:24:56.099810+00:00"
       },
       "indicators": {
         "rsi14": 30.969101123595507,
@@ -6372,8 +6372,8 @@
         "macd_signal": -0.6655325555543221,
         "macd_hist": -2.7397033327440274,
         "momentum20": -20.038240917782023,
-        "volume": 358571782.0,
-        "volume_vs_20d": 2.2975827704629
+        "volume": 358571780.0,
+        "volume_vs_20d": 2.2975827591199076
       },
       "score": {
         "buy": 39.0,
@@ -8464,7 +8464,7 @@
           "high": 41.82,
           "low": 41.82,
           "close": 41.82,
-          "volume": 358571782.0
+          "volume": 358571780.0
         }
       ]
     }
