@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11T15:24:05.645194+00:00",
+  "updated": "2026-09-11T15:37:18.728684+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -10,9 +10,9 @@
         "price": 15.08,
         "previous_close": 15.2,
         "day_change_percent": -0.7894736842105177,
-        "volume": 13270946.0,
-        "market_cap": 57456000000.0,
-        "timestamp": "2026-09-11T15:24:48.788809+00:00"
+        "volume": 13271345.0,
+        "market_cap": 57002400000.0,
+        "timestamp": "2026-09-11T15:39:25.107861+00:00"
       },
       "indicators": {
         "rsi14": 36.31713554987212,
@@ -23,8 +23,8 @@
         "macd_signal": 0.06822356772193909,
         "macd_hist": -0.15541958561612884,
         "momentum20": -10.184633710541979,
-        "volume": 13270946.0,
-        "volume_vs_20d": 0.40879276871204534
+        "volume": 13271345.0,
+        "volume_vs_20d": 0.4088048081206565
       },
       "score": {
         "buy": 37.0,
@@ -2115,7 +2115,7 @@
           "high": 15.29,
           "low": 15.0,
           "close": 15.08,
-          "volume": 13270946.0
+          "volume": 13271345.0
         }
       ]
     },
@@ -2126,9 +2126,9 @@
         "price": 74.5,
         "previous_close": 74.03,
         "day_change_percent": 0.6348777522625859,
-        "volume": 19204725.0,
+        "volume": 19204835.0,
         "market_cap": null,
-        "timestamp": "2026-09-11T15:25:35.947160+00:00"
+        "timestamp": "2026-09-11T15:40:55.250024+00:00"
       },
       "indicators": {
         "rsi14": 29.95780590717301,
@@ -2139,8 +2139,8 @@
         "macd_signal": 0.8213700369630694,
         "macd_hist": -0.39695572314847505,
         "momentum20": 0.662072692879323,
-        "volume": 19204725.0,
-        "volume_vs_20d": 1.0054674706144717
+        "volume": 19204835.0,
+        "volume_vs_20d": 1.0054729401582914
       },
       "score": {
         "buy": 47.0,
@@ -4232,7 +4232,7 @@
           "high": 75.17,
           "low": 73.8,
           "close": 74.5,
-          "volume": 19204725.0
+          "volume": 19204835.0
         }
       ]
     },
@@ -4244,8 +4244,8 @@
         "previous_close": 285.25,
         "day_change_percent": 3.0674846625766916,
         "volume": 29906930.0,
-        "market_cap": 284679500000.0,
-        "timestamp": "2026-09-11T15:26:42.872886+00:00"
+        "market_cap": 293412000000.0,
+        "timestamp": "2026-09-11T15:42:20.754763+00:00"
       },
       "indicators": {
         "rsi14": 26.550868486352357,
@@ -6361,8 +6361,8 @@
         "previous_close": 41.82,
         "day_change_percent": -9.995217599234818,
         "volume": 385875178.0,
-        "market_cap": 292740000000.0,
-        "timestamp": "2026-09-11T15:27:24.398802+00:00"
+        "market_cap": 263480000000.0,
+        "timestamp": "2026-09-11T15:43:19.530506+00:00"
       },
       "indicators": {
         "rsi14": 31.365576102418217,
