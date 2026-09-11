@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11T10:50:51.389770+00:00",
+  "updated": "2026-09-11T11:04:13.365209+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -10,9 +10,9 @@
         "price": 15.06,
         "previous_close": 15.2,
         "day_change_percent": -0.9210526315789447,
-        "volume": 6748898.0,
-        "market_cap": 57456000000.0,
-        "timestamp": "2026-09-11T10:51:38.608170+00:00"
+        "volume": 6877167.0,
+        "market_cap": null,
+        "timestamp": "2026-09-11T11:06:23.112643+00:00"
       },
       "indicators": {
         "rsi14": 36.132315521628506,
@@ -23,8 +23,8 @@
         "macd_signal": 0.06790447940285052,
         "macd_hist": -0.15669593889248315,
         "momentum20": -10.303752233472297,
-        "volume": 6748898.0,
-        "volume_vs_20d": 0.20999975511586147
+        "volume": 6877167.0,
+        "volume_vs_20d": 0.21394829725066672
       },
       "score": {
         "buy": 37.0,
@@ -2115,7 +2115,7 @@
           "high": 15.29,
           "low": 15.0,
           "close": 15.06,
-          "volume": 6748898.0
+          "volume": 6877167.0
         }
       ]
     },
@@ -2123,24 +2123,24 @@
       "symbol": "ALTINS1",
       "provider_symbol": "ALTIN",
       "quote": {
-        "price": 74.74,
+        "price": 74.6,
         "previous_close": 74.03,
-        "day_change_percent": 0.9590706470349764,
-        "volume": 5867991.0,
+        "day_change_percent": 0.7699581250844245,
+        "volume": 6497392.0,
         "market_cap": null,
-        "timestamp": "2026-09-11T10:52:21.963220+00:00"
+        "timestamp": "2026-09-11T11:08:29.047513+00:00"
       },
       "indicators": {
-        "rsi14": 31.120331950207458,
-        "sma20": 75.684,
-        "sma50": 72.2024,
-        "sma200": 80.51865,
-        "macd": 0.4435596129598878,
-        "macd_signal": 0.8251990967921281,
-        "macd_hist": -0.38163948383224033,
-        "momentum20": 0.9863531955141003,
-        "volume": 5867991.0,
-        "volume_vs_20d": 0.318333706025207
+        "rsi14": 30.446927374301666,
+        "sma20": 75.67699999999999,
+        "sma50": 72.1996,
+        "sma200": 80.51795,
+        "macd": 0.43239152179179996,
+        "macd_signal": 0.8229654785585105,
+        "macd_hist": -0.3905739567667106,
+        "momentum20": 0.7971895689771413,
+        "volume": 6497392.0,
+        "volume_vs_20d": 0.35187746101182343
       },
       "score": {
         "buy": 37.0,
@@ -4230,8 +4230,8 @@
           "open": 73.99,
           "high": 74.77,
           "low": 73.8,
-          "close": 74.74,
-          "volume": 5867991.0
+          "close": 74.6,
+          "volume": 6497392.0
         }
       ]
     },
@@ -4239,29 +4239,29 @@
       "symbol": "ASTOR",
       "provider_symbol": "ASTOR",
       "quote": {
-        "price": 293.0,
+        "price": 294.5,
         "previous_close": 285.25,
-        "day_change_percent": 2.716914986853647,
-        "volume": 14396684.0,
-        "market_cap": 284679500000.0,
-        "timestamp": "2026-09-11T10:52:50.790343+00:00"
+        "day_change_percent": 3.242769500438203,
+        "volume": 15218862.0,
+        "market_cap": null,
+        "timestamp": "2026-09-11T11:10:36.830471+00:00"
       },
       "indicators": {
-        "rsi14": 25.81453634085213,
-        "sma20": 319.925,
-        "sma50": 312.76,
-        "sma200": 229.6665,
-        "macd": -6.389896869525614,
-        "macd_signal": -1.295465722557226,
-        "macd_hist": -5.094431146968389,
-        "momentum20": -14.390065741417091,
-        "volume": 14396684.0,
-        "volume_vs_20d": 0.4438537493626553
+        "rsi14": 26.913580246913583,
+        "sma20": 320.0,
+        "sma50": 312.79,
+        "sma200": 229.674,
+        "macd": -6.270238749867531,
+        "macd_signal": -1.2715340986256092,
+        "macd_hist": -4.998704651241922,
+        "momentum20": -13.951789627465306,
+        "volume": 15218862.0,
+        "volume_vs_20d": 0.4686078115321179
       },
       "score": {
-        "buy": 47.0,
-        "hold": 94.0,
-        "sell": 53.0,
+        "buy": 49.0,
+        "hold": 98.0,
+        "sell": 51.0,
         "decision": "BEKLE",
         "reasons": [
           "RSI aşırı satım bölgesinde",
@@ -6345,10 +6345,10 @@
         {
           "date": "2026-09-11",
           "open": 284.75,
-          "high": 294.25,
+          "high": 294.75,
           "low": 282.5,
-          "close": 293.0,
-          "volume": 14396684.0
+          "close": 294.5,
+          "volume": 15218862.0
         }
       ]
     },
@@ -6356,30 +6356,30 @@
       "symbol": "KTLEV",
       "provider_symbol": "KTLEV",
       "quote": {
-        "price": 40.82,
+        "price": 40.4,
         "previous_close": 41.82,
-        "day_change_percent": -2.3912003825920625,
-        "volume": 291622429.0,
-        "market_cap": 292740000000.0,
-        "timestamp": "2026-09-11T10:53:23.157359+00:00"
+        "day_change_percent": -3.3955045432807363,
+        "volume": 297851856.0,
+        "market_cap": null,
+        "timestamp": "2026-09-11T11:12:47.206630+00:00"
       },
       "indicators": {
-        "rsi14": 33.24538258575198,
-        "sma20": 53.4385,
-        "sma50": 51.649914068,
-        "sma200": 29.091834241900003,
-        "macd": -3.632090282610619,
-        "macd_signal": -1.2588441009655815,
-        "macd_hist": -2.3732461816450376,
-        "momentum20": -25.781818181818185,
-        "volume": 291622429.0,
-        "volume_vs_20d": 1.7462077104411307
+        "rsi14": 32.98429319371728,
+        "sma20": 53.4175,
+        "sma50": 51.641514068,
+        "sma200": 29.0897342419,
+        "macd": -3.665594556114897,
+        "macd_signal": -1.2655449556664373,
+        "macd_hist": -2.4000496004484595,
+        "momentum20": -26.54545454545455,
+        "volume": 297851856.0,
+        "volume_vs_20d": 1.7801887731551094
       },
       "score": {
-        "buy": 37.0,
-        "hold": 74.0,
-        "sell": 63.0,
-        "decision": "BEKLE",
+        "buy": 35.0,
+        "hold": 70.0,
+        "sell": 65.0,
+        "decision": "SAT",
         "reasons": [
           "Fiyat SMA200 üzerinde",
           "MACD histogram negatif"
@@ -8463,8 +8463,8 @@
           "open": 41.68,
           "high": 45.18,
           "low": 39.66,
-          "close": 40.82,
-          "volume": 291622429.0
+          "close": 40.4,
+          "volume": 297851856.0
         }
       ]
     }
