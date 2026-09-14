@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14T06:55:15.185767+00:00",
+  "updated": "2026-09-14T07:06:05.269586+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -11,8 +11,8 @@
         "previous_close": 15.2,
         "day_change_percent": -0.7894736842105177,
         "volume": 13271345.0,
-        "market_cap": 57002400000.0,
-        "timestamp": "2026-09-14T06:55:32.234574+00:00"
+        "market_cap": null,
+        "timestamp": "2026-09-14T07:08:16.860348+00:00"
       },
       "indicators": {
         "rsi14": 36.31713554987212,
@@ -2128,7 +2128,7 @@
         "day_change_percent": 0.6348777522625859,
         "volume": 19204835.0,
         "market_cap": null,
-        "timestamp": "2026-09-14T06:55:57.291929+00:00"
+        "timestamp": "2026-09-14T07:10:24.535785+00:00"
       },
       "indicators": {
         "rsi14": 29.95780590717301,
@@ -4244,8 +4244,8 @@
         "previous_close": 285.25,
         "day_change_percent": 3.0674846625766916,
         "volume": 29906930.0,
-        "market_cap": 293412000000.0,
-        "timestamp": "2026-09-14T06:56:50.853529+00:00"
+        "market_cap": null,
+        "timestamp": "2026-09-14T07:12:33.765293+00:00"
       },
       "indicators": {
         "rsi14": 26.550868486352357,
@@ -6357,44 +6357,37 @@
       "symbol": "KTLEV",
       "provider_symbol": "KTLEV",
       "quote": {
-        "price": 37.64,
-        "previous_close": 41.82,
-        "day_change_percent": -9.995217599234818,
-        "volume": 385875180.0,
+        "price": 33.88,
+        "previous_close": 37.64,
+        "day_change_percent": -9.989373007438884,
+        "volume": 2040259.0,
         "market_cap": 263480000000.0,
-        "timestamp": "2026-09-14T06:57:12.934965+00:00"
+        "timestamp": "2026-09-14T07:13:34.614128+00:00"
       },
       "indicators": {
-        "rsi14": 31.365576102418217,
-        "sma20": 53.2795,
-        "sma50": 51.586314068,
-        "sma200": 29.0759342419,
-        "macd": -3.885765496285835,
-        "macd_signal": -1.3095791437006248,
-        "macd_hist": -2.57618635258521,
-        "momentum20": -31.56363636363636,
-        "volume": 385875180.0,
-        "volume_vs_20d": 2.2471717692390656
+        "rsi14": 25.159010600706722,
+        "sma20": 52.3235,
+        "sma50": 51.177460831999994,
+        "sma200": 29.2221206929,
+        "macd": -4.517909599452267,
+        "macd_signal": -1.9512452348509535,
+        "macd_hist": -2.5666643646013134,
+        "momentum20": -36.075471698113205,
+        "volume": 2040259.0,
+        "volume_vs_20d": 0.012247899046147075
       },
       "score": {
-        "buy": 35.0,
-        "hold": 70.0,
-        "sell": 65.0,
-        "decision": "SAT",
+        "buy": 45.0,
+        "hold": 90.0,
+        "sell": 55.0,
+        "decision": "BEKLE",
         "reasons": [
+          "RSI aşırı satım bölgesinde",
           "Fiyat SMA200 üzerinde",
           "MACD histogram negatif"
         ]
       },
       "history": [
-        {
-          "date": "2025-09-01",
-          "open": 3.26468256,
-          "high": 3.5189966,
-          "low": 3.26468256,
-          "close": 3.36818246,
-          "volume": 370530502.4449299
-        },
         {
           "date": "2025-09-02",
           "open": 3.38296816,
@@ -8466,6 +8459,14 @@
           "low": 37.64,
           "close": 37.64,
           "volume": 385875180.0
+        },
+        {
+          "date": "2026-09-14",
+          "open": 33.88,
+          "high": 33.88,
+          "low": 33.88,
+          "close": 33.88,
+          "volume": 2040259.0
         }
       ]
     }
