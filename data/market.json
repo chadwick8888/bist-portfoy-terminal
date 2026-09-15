@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-15T15:24:10.407903+00:00",
+  "updated": "2026-09-15T15:37:14.853913+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -12,7 +12,7 @@
         "day_change_percent": 0.14104372355430161,
         "volume": 28238851.0,
         "market_cap": 53600400000.0,
-        "timestamp": "2026-09-15T15:24:46.913265+00:00"
+        "timestamp": "2026-09-15T15:37:49.956037+00:00"
       },
       "indicators": {
         "rsi14": 31.372549019607817,
@@ -2126,9 +2126,9 @@
         "price": 73.27,
         "previous_close": 73.18,
         "day_change_percent": 0.12298442197320458,
-        "volume": 10872534.0,
+        "volume": 10873714.0,
         "market_cap": null,
-        "timestamp": "2026-09-15T15:25:06.282323+00:00"
+        "timestamp": "2026-09-15T15:38:26.378446+00:00"
       },
       "indicators": {
         "rsi14": 32.87981859410429,
@@ -2139,8 +2139,8 @@
         "macd_signal": 0.5934277231836528,
         "macd_hist": -0.46122773593215627,
         "momentum20": -0.7853757616790746,
-        "volume": 10872534.0,
-        "volume_vs_20d": 0.5740751402528899
+        "volume": 10873714.0,
+        "volume_vs_20d": 0.574135656268941
       },
       "score": {
         "buy": 37.0,
@@ -4231,7 +4231,7 @@
           "high": 73.51,
           "low": 72.97,
           "close": 73.27,
-          "volume": 10872534.0
+          "volume": 10873714.0
         }
       ]
     },
@@ -4243,8 +4243,8 @@
         "previous_close": 282.5,
         "day_change_percent": -3.6283185840708,
         "volume": 30282151.0,
-        "market_cap": null,
-        "timestamp": "2026-09-15T15:25:23.368171+00:00"
+        "market_cap": 271705500000.0,
+        "timestamp": "2026-09-15T15:38:55.081782+00:00"
       },
       "indicators": {
         "rsi14": 22.29166666666667,
@@ -6361,7 +6361,7 @@
         "day_change_percent": -9.976387249114527,
         "volume": 3771303.0,
         "market_cap": 237160000000.0,
-        "timestamp": "2026-09-15T15:25:33.329043+00:00"
+        "timestamp": "2026-09-15T15:39:34.951406+00:00"
       },
       "indicators": {
         "rsi14": 21.110727837185237,
