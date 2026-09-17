@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17T15:24:21.813963+00:00",
+  "updated": "2026-09-17T15:36:20.550168+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -10,9 +10,9 @@
         "price": 14.15,
         "previous_close": 13.57,
         "day_change_percent": 4.274134119380979,
-        "volume": 46111266.0,
+        "volume": 46111466.0,
         "market_cap": 51294600000.0,
-        "timestamp": "2026-09-17T15:25:16.981357+00:00"
+        "timestamp": "2026-09-17T15:38:11.978622+00:00"
       },
       "indicators": {
         "rsi14": 25.465838509316754,
@@ -23,8 +23,8 @@
         "macd_signal": -0.17799553979356608,
         "macd_hist": -0.2538440578603106,
         "momentum20": -14.553140096618344,
-        "volume": 46111266.0,
-        "volume_vs_20d": 1.445879715291618
+        "volume": 46111466.0,
+        "volume_vs_20d": 1.4458855331795377
       },
       "score": {
         "buy": 49.0,
@@ -2116,7 +2116,7 @@
           "high": 14.36,
           "low": 13.25,
           "close": 14.15,
-          "volume": 46111266.0
+          "volume": 46111466.0
         }
       ]
     },
@@ -2129,7 +2129,7 @@
         "day_change_percent": 1.1301742919390012,
         "volume": 19221463.0,
         "market_cap": null,
-        "timestamp": "2026-09-17T15:25:58.455184+00:00"
+        "timestamp": "2026-09-17T15:39:45.280442+00:00"
       },
       "indicators": {
         "rsi14": 38.51691864650827,
@@ -4245,7 +4245,7 @@
         "day_change_percent": 4.073319755600813,
         "volume": 58151941.0,
         "market_cap": 245009000000.0,
-        "timestamp": "2026-09-17T15:26:40.431569+00:00"
+        "timestamp": "2026-09-17T15:40:43.583468+00:00"
       },
       "indicators": {
         "rsi14": 17.948717948717942,
@@ -6362,7 +6362,7 @@
         "day_change_percent": -9.978150036416611,
         "volume": 5996257.0,
         "market_cap": 192220000000.0,
-        "timestamp": "2026-09-17T15:27:22.035636+00:00"
+        "timestamp": "2026-09-17T15:41:17.862097+00:00"
       },
       "indicators": {
         "rsi14": 12.3213070115725,
