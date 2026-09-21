@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-21T22:48:51.724721+00:00",
+  "updated": "2026-09-21T23:04:30.939595+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -12,7 +12,7 @@
         "day_change_percent": -2.9905178701677637,
         "volume": 36714678.0,
         "market_cap": 50274000000.0,
-        "timestamp": "2026-09-21T22:49:03.375271+00:00"
+        "timestamp": "2026-09-21T23:04:42.259368+00:00"
       },
       "indicators": {
         "rsi14": 20.45454545454541,
@@ -2128,7 +2128,7 @@
         "day_change_percent": -0.6926868256294072,
         "volume": 14218149.0,
         "market_cap": null,
-        "timestamp": "2026-09-21T22:49:08.749203+00:00"
+        "timestamp": "2026-09-21T23:04:47.739065+00:00"
       },
       "indicators": {
         "rsi14": 56.94444444444446,
@@ -4245,7 +4245,7 @@
         "day_change_percent": 5.544354838709675,
         "volume": 41523750.0,
         "market_cap": 261226500000.0,
-        "timestamp": "2026-09-21T22:49:15.357533+00:00"
+        "timestamp": "2026-09-21T23:04:54.211403+00:00"
       },
       "indicators": {
         "rsi14": 29.629629629629633,
@@ -6362,7 +6362,7 @@
         "day_change_percent": -9.973045822102433,
         "volume": 3492818.0,
         "market_cap": 140280000000.0,
-        "timestamp": "2026-09-21T22:49:21.992845+00:00"
+        "timestamp": "2026-09-21T23:05:00.612975+00:00"
       },
       "indicators": {
         "rsi14": 14.198862522063152,
