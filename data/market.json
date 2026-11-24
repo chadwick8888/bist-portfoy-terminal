@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23T15:31:45.002379+00:00",
+  "updated": "2026-11-24T02:34:27.448878+00:00",
   "source": "borsapy / TradingView-İş Yatırım kaynakları",
   "delay_note": "BIST verisi sağlayıcıya göre gecikmeli olabilir.",
   "stocks": {
@@ -11,8 +11,8 @@
         "previous_close": 11.22,
         "day_change_percent": 2.1390374331550888,
         "volume": 34496398.0,
-        "market_cap": 42411600000.0,
-        "timestamp": "2026-11-23T15:32:48.487961+00:00"
+        "market_cap": 43318800000.0,
+        "timestamp": "2026-11-24T02:34:41.061995+00:00"
       },
       "indicators": {
         "rsi14": 49.34497816593886,
@@ -2127,7 +2127,7 @@
         "day_change_percent": 1.549028204004066,
         "volume": 12819727.0,
         "market_cap": null,
-        "timestamp": "2026-11-23T15:33:17.484033+00:00"
+        "timestamp": "2026-11-24T02:34:46.983949+00:00"
       },
       "indicators": {
         "rsi14": 50.20040080160317,
@@ -4241,8 +4241,8 @@
         "previous_close": 145.6,
         "day_change_percent": 0.2060439560439553,
         "volume": 39755559.0,
-        "market_cap": 145308800000.0,
-        "timestamp": "2026-11-23T15:33:48.523772+00:00"
+        "market_cap": 145608200000.0,
+        "timestamp": "2026-11-24T02:34:55.143970+00:00"
       },
       "indicators": {
         "rsi14": 45.23809523809524,
@@ -6355,9 +6355,9 @@
         "price": 6.69,
         "previous_close": 7.43,
         "day_change_percent": -9.959623149394336,
-        "volume": 374993699.0,
-        "market_cap": 52010000000.0,
-        "timestamp": "2026-11-23T15:33:59.249945+00:00"
+        "volume": 374993700.0,
+        "market_cap": 46830000000.0,
+        "timestamp": "2026-11-24T02:35:02.952481+00:00"
       },
       "indicators": {
         "rsi14": 70.01321003963011,
@@ -6368,8 +6368,8 @@
         "macd_signal": -1.5756538494664838,
         "macd_hist": 0.8060601016698028,
         "momentum20": 64.37346437346436,
-        "volume": 374993699.0,
-        "volume_vs_20d": 0.7322800778572753
+        "volume": 374993700.0,
+        "volume_vs_20d": 0.7322800797385559
       },
       "score": {
         "buy": 46.0,
@@ -8461,7 +8461,7 @@
           "high": 7.68,
           "low": 6.69,
           "close": 6.69,
-          "volume": 374993699.0
+          "volume": 374993700.0
         }
       ]
     }
